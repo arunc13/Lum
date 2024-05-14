@@ -18,7 +18,10 @@ print(data['conf'])
 n_boxes = len(data['text'])
 print(n_boxes)
 
-
+for i in range(n_boxes):
+    if data['conf'][i] > 46:
+        x,y,w,h = data['left'][i], data['top'][i], data['width'][i], data['height'][i]
+        cv2.rectangle(img, (x,y), (x+w,y+h), color=(0,255,0), thickness=5)
 
 cv2.imshow('text',img)
 cv2.waitKey()
