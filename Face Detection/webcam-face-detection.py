@@ -1,6 +1,7 @@
 import cv2
 
 video = cv2.VideoCapture('/home/arun/Lum/Face Detection/wav1.mp4')
+# video = cv2.VideoCapture(0)
 
 while True:
     success, frame = video.read()
@@ -14,7 +15,7 @@ while True:
     for (x,y,w,h) in faces:
         cv2.rectangle(frame, pt1=(x,y), pt2=(x+w,y+h), color=(0,255,0), thickness=2)
 
-    cv2.imshow('video reader', frame)
+    cv2.imshow('face detection', frame)
     if cv2.waitKey(1) & 0xFF==27:
         break
 
